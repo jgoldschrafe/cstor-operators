@@ -174,7 +174,7 @@ func (c *client) createAdmissionValidatingConfig(
 		)
 	}
 
-	// sideEffectClass := admissionregistration.SideEffectClassNoneOnDryRun
+	sideEffectClass := admissionregistration.SideEffectClassNoneOnDryRun
 
 	webhookHandler := admissionregistration.ValidatingWebhook{
 		Name: webhookHandlerName,
@@ -211,7 +211,7 @@ func (c *client) createAdmissionValidatingConfig(
 			},
 			CABundle: signingCert,
 		},
-		// SideEffects:             &sideEffectClass,
+		SideEffects:             &sideEffectClass,
 		// AdmissionReviewVersions: []string{"v1"},
 		TimeoutSeconds: &five,
 		FailurePolicy:  failurePolicy(),
